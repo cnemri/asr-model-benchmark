@@ -1,0 +1,63 @@
+# Transcription Benchmark Configuration
+
+# Google Cloud credentials
+google_cloud:
+  project_id: "your-google-cloud-project-id"
+  gemini_api_key: "your-gemini-api-key-here"
+
+gcs:
+  bucket: "your-gcs-bucket-name"
+  audio_folder: "transcription-dataset/MP3/"
+  groundtruth_folder: "transcription-dataset/TXT/"
+  output_base: "transcription_results/"
+
+chirp:
+  region: "us"
+  model: "chirp_3"
+  min_speaker_count: 1
+  max_speaker_count: 6
+  output_folder: "chirp/"
+
+gemini:
+  location: "us-central1"
+  output_folder_prefix: "gemini/"
+  models:
+    pro_thinking:
+      model: "gemini-2.5-pro"
+      thinking: true
+    pro_no_thinking:
+      model: "gemini-2.5-pro"
+      thinking: false
+    flash_thinking:
+      model: "gemini-2.5-flash"
+      thinking: true
+    flash_no_thinking:
+      model: "gemini-2.5-flash"
+      thinking: false
+    flash_lite_thinking:
+      model: "gemini-2.5-flash-lite"
+      thinking: true
+    flash_lite_no_thinking:
+      model: "gemini-2.5-flash-lite"
+      thinking: false
+
+audio:
+  format: ".mp3"
+  mime_type: "audio/mpeg"
+
+retry:
+  max_retries: 3
+  initial_delay: 1.0
+  backoff_factor: 2.0
+
+batch_job:
+  poll_interval: 30  # seconds
+
+output:
+  results_dir: "results"
+  save_csv: true
+  save_json: true
+
+logging:
+  level: "INFO"
+  log_file: null  # Set to a file path to enable file logging
