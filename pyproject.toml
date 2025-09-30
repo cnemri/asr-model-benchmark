@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Transcription benchmark for comparing Google Cloud speech-to-text models"
 readme = "README.md"
 requires-python = ">=3.12"
+authors = [
+    {name = "Chouaieb Nemri", email = "chouaib.nemri@gmail.com"}
+]
 dependencies = [
     "google-cloud-speech>=2.33.0",
     "google-cloud-storage>=3.4.0",
